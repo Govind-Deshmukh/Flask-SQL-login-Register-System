@@ -1,52 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MGM COE Codechef</title>
-    <link
-      rel="stylesheet"
-      href="{{url_for('.static', filename='bootstrap.css')}}"
-    />
-    <link
-    rel="stylesheet"
-    href="{{url_for('.static', filename='style.css')}}"
-  />
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-lg">
-      <a class="navbar-brand m-2" href="#">MGM's COE Codechef</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mx-auto">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MGM COE Codechef</title>
 
-        </ul>
-        <div class="form-inline my-2 my-lg-0 m-2">
-          <a class="btn btn-success" href="{{url_for('home')}}">Login</a>
-        </div>
-        <div class="form-inline my-2 my-lg-0 m-2">
-            <a class="btn btn-primary" href="{{url_for('register')}}">Register</a>
-          </div>
+  <script src="{{url_for('.static', filename='jquery.js')}}" async defer></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  <script src="{{url_for('.static', filename='bootstrap.js')}}" async defer></script>
+
+  <link rel="stylesheet" href="{{url_for('.static', filename='bootstrap.css')}}" />
+  
+  <link rel="stylesheet" href="{{url_for('.static', filename='style.css')}}" />
+
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand m-2" href="#">MGM's COE Codechef</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mx-auto">
+
+      </ul>
+      <div class="form-inline my-2 my-lg-0 m-2">
+        <a class="btn btn-success" href="{{url_for('login')}}">Login</a>
       </div>
-    </nav>
-    {% block content %} {% endblock %}
+      <div class="form-inline my-2 my-lg-0 m-2">
+        <a class="btn btn-primary" href="{{url_for('register')}}">Register</a>
+      </div>
+    </div>
+  </nav>
+  {% block content %} {% endblock %}
 
-    <script
-      src="{{url_for('.static', filename='bootstrap.js')}}"
-      async
-      defer
-    ></script>
-  </body>
+
+</body>
 </html>

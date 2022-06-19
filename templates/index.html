@@ -1,32 +1,60 @@
-{% extends "base.html" %} 
+{% extends "base.html" %}
+
 {% block content %}
+
+<!-- Begin alerts -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for category, message in messages %}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+
+  Swal.fire({
+
+    title: "{{ category.title() }}!",
+    // success , error , warning ,info
+
+    text: "{{ message }}",
+    // Custom message flashed from your flask routes
+
+    icon: "{{ category }}" == "danger" ? "error" : "{{ category }}"
+    // success , error , warning ,info
+
+  })
+
+</script>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+<!-- End alerts -->
+
 <div class="login-box">
-    <div class="container">
-        <div class="card login-box-inner mt-5">
-            <img src="{{url_for('static', filename='images/back.png')}}" class="card-img-top" alt="login card image">
-            <div class="card-body">
-              <h5 class="card-title text-center">Login</h5>
-              <form method="post" action="/">
-                <div class="mb-3">
-                  <label class="form-label">Username</label>
-                  <input type="text" class="form-control">
-                </div>
-                <div class="mb-3">
-                  <label class="form-label">Password</label>
-                  <input type="password" class="form-control">
-                </div>
-                <button type="submit" class="btn btn-primary w-100">Submit</button>
-                <div class="mb-3 mt-3 text-center">
-                    <p>
-                        Not a member? <a href="{{url_for('register')}}">Sign up</a>
-                    </p>
-
-
-                </div>
-              </form>
-            </div>
+  <div class="container">
+    <div class="card login-box-inner mt-5">
+      <img src="{{url_for('static', filename='images/back.png')}}" class="card-img-top" alt="login card image">
+      <div class="card-body">
+        <h5 class="card-title text-center">Login</h5>
+        <form method="post" action="/">
+          <div class="mb-3">
+            <label class="form-label">Username</label>
+            <input name="username" type="text" class="form-control">
           </div>
+          <div class="mb-3">
+            <label class="form-label">Password</label>
+            <input name="password" type="password" class="form-control">
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Submit</button>
+          <div class="mb-3 mt-3 text-center">
+            <p>
+              Not a member? <a href="{{url_for('register')}}">Sign up</a>
+            </p>
+          </div>
+        </form>
+      </div>
     </div>
+  </div>
 </div>
 
 {% endblock %}
