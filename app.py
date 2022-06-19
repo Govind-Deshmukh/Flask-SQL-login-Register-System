@@ -68,5 +68,5 @@ def dashboard():
         return redirect(url_for('login'))
 
 if '__main__' == __name__:
-    app.run(host='0.0.0.0', debug=True)
+    app.run()
     
