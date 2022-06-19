@@ -1,0 +1,35 @@
+.navbar {
+    background-color: #e3f2fd;
+}
+.navbar-brand {
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+
+}
+
+/* align container to center */
+
+.login-box{
+    width: 100%;
+}
+.card{
+    margin: auto;
+    width: 50%;
+}
+
+.login-box-inner{
+    width : 450px
+}
+
+.card-title{
+    font-size: 25px;
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 428px) {
+    .card{
+        width : 350px;
+    }
+
+}
