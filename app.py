@@ -6,15 +6,18 @@ app = Flask(__name__)
 app.secret_key = 'iamgoodboi'
 
 mydb = mysql.connector.connect(
-	host = "remotemysql.com",
-	user = "VWRnLTM6RW",
-	password = "HdCZfdhdbw",
-    database = "VWRnLTM6RW"
+	host = "localhost",
+	user = "root",
+	password = "",
+    database = "codechef"
 )
 cursor = mydb.cursor()
+
+
+
 @app.route('/' , methods=['GET','POST'])
 def login():
-    if request.method == 'POST':               
+    if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
         cursor.execute("SELECT * FROM users WHERE username = '"+username+"' AND password = '"+password+"';")
@@ -57,6 +60,12 @@ def register():
     if request.method == 'GET':
         return render_template('register.html')
 
+#logout route
+@app.route('/logout', methods=['GET','POST'])
+def logout():
+    session.clear()
+    return redirect(url_for('login'))
+
 @app.route('/dashboard' , methods=['GET','POST'])
 def dashboard():
     if 'username' in session:
@@ -68,5 +77,5 @@ def dashboard():
         return redirect(url_for('login'))
 
 if '__main__' == __name__:
-    app.run()
+    app.run(debug=True)
     
